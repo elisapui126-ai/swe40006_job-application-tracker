@@ -262,7 +262,7 @@ export default function ApplicationsPage() {
 
             <div className="flex items-center gap-2">
               <Link
-                href="/dashboard/add"
+                href="/applications/new"
                 className="
                   group flex items-center gap-2
                   rounded-full
@@ -695,7 +695,7 @@ export default function ApplicationsPage() {
                               </button>
 
                               <Link
-                                href={`/dashboard/edit/${item.id}`}
+                                href={`/applications/${item.id}/edit`}
                                 className="
                                   flex h-9 w-9 items-center justify-center
                                   rounded-xl

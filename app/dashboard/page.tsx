@@ -270,7 +270,7 @@ export default function Dashboard() {
                         status === 'interview' && 'border-l-4 border-l-amber-500',
                         status === 'offer' && 'border-l-4 border-l-emerald-500',
                       )}
-                      onClick={() => router.push(`/dashboard/edit/${job.id}`)}
+                      onClick={() => router.push(`/applications/${job.id}/edit`)}
                     >
                       <p className="text-xs font-bold text-zinc-900">{job.company_name}</p>
                       <p className="text-[10px] text-zinc-500 truncate">{job.job_title}</p>
@@ -304,7 +304,7 @@ export default function Dashboard() {
             : 'Found a job you like? Add it and keep tracking your applications.'}
         </p>
         <Link
-          href="/dashboard/add"
+          href="/applications/new"
           className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-zinc-800 active:scale-95 shadow-sm"
         >
           <Plus size={20} />
