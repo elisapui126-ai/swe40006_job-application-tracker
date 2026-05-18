@@ -13,7 +13,7 @@ import { getApplications } from '@/lib/applications'
 import { supabase } from '@/lib/supabase'
 import type { JobApplication, ApplicationStatus } from '@/lib/application-types'
 import { cn } from '@/src/lib/utils'
-import { format, isAfter, parseISO, differenceInDays } from 'date-fns'
+import { format, parseISO, differenceInDays } from 'date-fns'
 
 const STATUS_CONFIG: Record<ApplicationStatus, { label: string; color: string; icon: React.ElementType }> = {
   wishlist: { label: 'Wishlist', color: '#3b82f6', icon: Clock }, // Blue
@@ -64,10 +64,10 @@ export default function Dashboard() {
   }, [items])
 
   const upcomingDeadlines = useMemo(() => {
-    const now = new Date()
+    const todayStart = new Date(new Date().toDateString())
     return items
-      .filter((item) => item.deadline && isAfter(parseISO(item.deadline), now))
-      .sort((a, b) => parseISO(a.deadline!).getTime() - parseISO(b.deadline!).getTime())
+      .filter((item) => !!item.deadline && new Date(item.deadline) >= todayStart)
+      .sort((a, b) => new Date(a.deadline!).getTime() - new Date(b.deadline!).getTime())
       .slice(0, 4)
   }, [items])
 
@@ -233,7 +233,7 @@ export default function Dashboard() {
                           'text-[9px] px-2 py-0.5 rounded-full font-bold',
                           daysLeft <= 3 ? 'bg-amber-100 text-amber-700' : 'bg-blue-100 text-blue-700'
                         )}>
-                          {daysLeft} DAYS
+                          {daysLeft === 0 ? 'TODAY' : `${daysLeft} DAYS`}
                         </span>
                       </div>
                       <p className="text-[11px] text-zinc-500 mt-1 truncate">{job.job_title}</p>
