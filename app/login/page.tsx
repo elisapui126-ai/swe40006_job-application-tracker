@@ -48,7 +48,7 @@ export default function LoginPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="grid w-full max-w-5xl overflow-hidden rounded-[32px] border border-slate-100 bg-white shadow-primary md:grid-cols-2 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none"
+        className="grid w-full max-w-5xl overflow-hidden rounded-[32px] border border-slate-100 bg-white shadow-[-16px_0_50px_-12px_rgba(15,23,42,0.18),0_25px_50px_-12px_rgba(15,23,42,0.15)] md:grid-cols-2 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none"
       >
         {/* Left Side: Form */}
         <div className="flex flex-col p-10 sm:p-12 lg:p-14">

@@ -80,7 +80,7 @@ export default function EditApplicationPage() {
         deadline: form.deadline?.trim() || undefined,
         notes: form.notes?.trim() || undefined,
       })
-      router.push('/dashboard')
+      router.push('/applications')
     } catch (e2) {
       setError(e2 instanceof Error ? e2.message : 'Failed to update application')
     } finally {
@@ -94,7 +94,7 @@ export default function EditApplicationPage() {
     setError(null)
     try {
       await deleteApplication(id)
-      router.push('/dashboard')
+      router.push('/applications')
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Failed to delete application')
     } finally {
@@ -241,7 +241,7 @@ export default function EditApplicationPage() {
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Link
-                    href="/dashboard"
+                    href="/applications"
                     className="inline-flex h-11 items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 text-sm font-medium text-zinc-600 transition-all hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:bg-zinc-900"
                   >
                     Cancel
