@@ -187,7 +187,7 @@ export default function Dashboard() {
               <h3 className={cn(
                 'text-[11px] font-bold uppercase tracking-wider',
                 overdueJobs.length > 0 ? 'text-red-800' : 'text-zinc-400'
-              )}>Overdue Tasks</h3>
+              )}>Overdue</h3>
               {overdueJobs.length > 0 && (
                 <span className="bg-red-100 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded-full">
                   {overdueJobs.length} ALERT
